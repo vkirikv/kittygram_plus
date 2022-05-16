@@ -1,0 +1,97 @@
+GET http://127.0.0.1:8000/cats/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUyNzQwMjk5LCJqdGkiOiJjNjlhYWU1M2Q1NTc0MGEyYTZlZWNjYzdkMzlkMDg3MCIsInVzZXJfaWQiOjJ9.gdkwqCk2ChMj7Z8ZiPvRQQZBOopCrJcneSKOLxq3QJQ
+
+###
+  "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY1Mjc0MDI5OSwianRpIjoiYWY3OWMzMjhmNjgyNGQxZWIwNzIwZmMxY2YzMGVhOTYiLCJ1c2VyX2lkIjoyfQ.qVgJzzeny-V1ZJYhrJ2uR1YAxDYbSzZW2A7tTr-jl44",
+  "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUyNzQwMjk5LCJqdGkiOiJjNjlhYWU1M2Q1NTc0MGEyYTZlZWNjYzdkMzlkMDg3MCIsInVzZXJfaWQiOjJ9.gdkwqCk2ChMj7Z8ZiPvRQQZBOopCrJcneSKOLxq3QJQ"
+Сам токен в поле access
+
+###
+
+POST http://127.0.0.1:8000/auth/jwt/create/
+Content-Type: application/json
+
+{
+  "username": "admin1",
+  "password": "Aa_12345"
+}
+
+###
+
+POST http://127.0.0.1:8000/auth/users/
+Content-Type: application/json
+
+{
+  "username": "admin1",
+  "password": "Aa_12345"
+}
+
+###
+
+http://127.0.0.1:8000/auth/users/
+Accept: application/json
+
+###
+POST http://127.0.0.1:8000/api-token-auth/
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin"
+}
+
+###
+
+"token": "c48a8a3ccd43468632f0945d7ddfde4ba7c1ee3f"
+
+###
+POST http://127.0.0.1:8000/cats/
+Content-Type: application/json
+
+{
+    "name": "Color Cat7",
+    "color": "Gray",
+    "birth_year": 2019,
+    "owner": 1
+
+}
+
+###
+
+GET http://127.0.0.1:8000/cats/
+Authorization: Token c48a8a3ccd43468632f0945d7ddfde4ba7c1ee3f
+
+###
+GET http://127.0.0.1:8000/owners/
+Accept: application/json
+
+###
+
+POST http://127.0.0.1:8000/cats/
+Content-Type: application/json
+
+{
+    "name": "Color Cat6",
+    "color": "Серый",
+    "birth_year": 2019,
+    "owner": 1,
+    "achievements": [
+        {"achievement_name": "поймал мышку"},
+        {"achievement_name": "разбил вазу"}
+    ]
+}
+
+
+###
+
+DELETE http://127.0.0.1:8000/cats/2/
+
+
+###
+
+GET http://127.0.0.1:8000/cats/recent-white-cats/
+Accept: application/json
+
+
+
+
